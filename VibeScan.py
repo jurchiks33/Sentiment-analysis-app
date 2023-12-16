@@ -25,6 +25,10 @@ def analyze_sentiment():
     ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
     ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
+    # Embedding the pie chart into the Tkinter window
+    canvas = FigureCanvasTkAgg(fig, master=root)  
+    canvas_widget = canvas.get_tk_widget()
+    canvas_widget.pack()
 
 root = tk.Tk()
 root.title("Sentiment Analysis App")
