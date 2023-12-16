@@ -1,4 +1,5 @@
 import nltk
+import tkinter as tk
 
 # nltk.download('vader_lexicon')
 # nltk.download('punkt')
@@ -16,3 +17,11 @@ root.title("Sentiment Analysis App")
 
 text_input = tk.Text(root, height=10, width=50)
 text_input.pack()
+
+analyze_button = tk.Button(root, text="Analyze", command=analyze_sentiment)
+analyze_button.pack()
+
+result_label = tk.Label(root, text="Sentiment Analysis Results")
+result_label.pack()
+
+root.mainloop()
