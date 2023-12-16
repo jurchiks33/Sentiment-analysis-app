@@ -1,6 +1,8 @@
 import nltk
 import tkinter as tk
 from tkinter import Toplevel
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 # nltk.download('vader_lexicon')
 # nltk.download('punkt')
@@ -13,15 +15,16 @@ def analyze_sentiment():
     sentiment = sia.polarity_scores(text)
     result_label.config(text=str(sentiment))
 
-    # Detailed Breakdown Window
-    detail_window = Toplevel(root)
-    detail_window.title("Detailed Breakdown")
+    # Data for pie chart
+    labels = ['Positive', 'Neutral', 'Negative']
+    sizes = [sentiment['pos'], sentiment['neu'], sentiment['neg']]
+    colors = ['green', 'blue', 'red']
 
-    # Format and display detailed breakdown
-    details = f"Positive: {sentiment['pos']}\n"
-    details += f"Neutral: {sentiment['neu']}\n"
-    details += f"Negative: {sentiment['neg']}\n"
-    details += f"Compound: {sentiment['compound']}"
+    # Create figure for the pie chart
+    fig, ax = plt.subplots()
+    ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
+    ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
 
 root = tk.Tk()
 root.title("Sentiment Analysis App")
