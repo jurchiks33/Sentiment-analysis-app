@@ -1,5 +1,6 @@
 import nltk
 import tkinter as tk
+from tkinter import Toplevel
 
 # nltk.download('vader_lexicon')
 # nltk.download('punkt')
@@ -11,6 +12,16 @@ def analyze_sentiment():
     sia = SentimentIntensityAnalyzer()
     sentiment = sia.polarity_scores(text)
     result_label.config(text=str(sentiment))
+
+    # Detailed Breakdown Window
+    detail_window = Toplevel(root)
+    detail_window.title("Detailed Breakdown")
+
+    # Format and display detailed breakdown
+    details = f"Positive: {sentiment['pos']}\n"
+    details += f"Neutral: {sentiment['neu']}\n"
+    details += f"Negative: {sentiment['neg']}\n"
+    details += f"Compound: {sentiment['compound']}"
 
 root = tk.Tk()
 root.title("Sentiment Analysis App")
