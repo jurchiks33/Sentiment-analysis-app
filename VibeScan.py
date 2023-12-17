@@ -69,7 +69,7 @@ def update_chart(sizes, labels, colors):
     canvas_widget.pack()
 
 root = tk.Tk()
-root.title("Sentiment Analysis App")
+root.title("VibeScan: Sentiment and Emotion Analysis App")
 
 # Calculate window size and position
 screen_width = root.winfo_screenwidth()
@@ -85,8 +85,8 @@ root.geometry(f"{window_width}x{window_height}+{position_right}+{position_down}"
 text_input = tk.Text(root, height=10, width=50)
 text_input.pack()
 
-analyze_button = tk.Button(root, text="Analyze", command=analyze_sentiment)
-analyze_button.pack()
+analyze_sentiment_button = tk.Button(root, text="Analyze Sentiment", command=analyze_sentiment)
+analyze_sentiment_button.pack()
 
 result_label = tk.Label(root, text="Sentiment Analysis Results")
 result_label.pack()
