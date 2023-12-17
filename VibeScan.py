@@ -29,7 +29,14 @@ def analyze_sentiment():
 
     update_chart(sizes, labels, colors)
 
-    
+def analyze_emotion():
+    global chart, canvas
+
+    text = text_input.get("1.0", "end-1c")
+    translated_text = translator.translate(text, src='lv', dest='en').text
+
+    emotion = te.get_emotion(translated_text)
+    emotion_result_label.config(text="Emotion Analysis Results: " + str(emotion))
 
 
 
