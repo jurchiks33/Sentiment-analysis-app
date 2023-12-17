@@ -38,6 +38,12 @@ def analyze_emotion():
     emotion = te.get_emotion(translated_text)
     emotion_result_label.config(text="Emotion Analysis Results: " + str(emotion))
 
+    # Data for emotion pie chart
+    labels = list(emotion.keys())
+    sizes = list(emotion.values())
+    colors = ['yellow', 'red', 'green', 'blue', 'orange']
+
+    update_chart(sizes, labels, colors)
 
 
     # Clear the previous pie chart
