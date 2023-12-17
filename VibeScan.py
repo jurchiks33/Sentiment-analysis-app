@@ -94,4 +94,7 @@ sentiment_result_label.pack()
 analyze_emotion_button = tk.Button(root, text="Analyze Emotion", command=analyze_emotion)
 analyze_emotion_button.pack()
 
+emotion_result_label = tk.Label(root, text="Emotion Analysis Results")
+emotion_result_label.pack()
+
 root.mainloop()
