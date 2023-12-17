@@ -88,6 +88,9 @@ text_input.pack()
 analyze_sentiment_button = tk.Button(root, text="Analyze Sentiment", command=analyze_sentiment)
 analyze_sentiment_button.pack()
 
+sentiment_result_label = tk.Label(root, text="Sentiment Analysis Results")
+sentiment_result_label.pack()
+
 result_label = tk.Label(root, text="Sentiment Analysis Results")
 result_label.pack()
 
