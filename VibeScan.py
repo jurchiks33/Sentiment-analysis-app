@@ -20,7 +20,7 @@ def analyze_sentiment():
     translated_text = translator.translate(text, src='lv', dest='en').text
 
     sentiment = sia.polarity_scores(translated_text)
-    result_label.config(text="Sentiment Analysis Results: " + str(sentiment))
+    sentiment_result_label.config(text="Sentiment Analysis Results: " + str(sentiment)) 
 
     # Data for pie chart
     labels = ['Positive', 'Neutral', 'Negative']
