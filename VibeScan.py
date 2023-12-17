@@ -46,6 +46,10 @@ def analyze_emotion():
     update_chart(sizes, labels, colors)
 
 
+
+def update_chart(sizes, labels, colors):
+    global chart, canvas
+
     # Clear the previous pie chart
     if chart is not None:
         for piece in chart[0]:
@@ -53,9 +57,9 @@ def analyze_emotion():
 
     # Create figure for the pie chart
     fig, ax = plt.subplots()
-    chart = ax.pie(sizes, labels=labels, colors=colors, 
-                   autopct='%1.1f%%', startangle=140)
+    chart = ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
     ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
 
     # Embedding the pie chart into the Tkinter window
     if canvas is not None:
