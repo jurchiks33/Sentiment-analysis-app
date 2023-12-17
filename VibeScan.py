@@ -1,8 +1,9 @@
 import tkinter as tk
-from googletrans import Translator
-from nltk.sentiment import SentimentIntensityAnalyzer
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from googletrans import Translator
+from nltk.sentiment import SentimentIntensityAnalyzer
+import text2emotion as te
 
 translator = Translator()
 sia = SentimentIntensityAnalyzer()
@@ -25,6 +26,12 @@ def analyze_sentiment():
     labels = ['Positive', 'Neutral', 'Negative']
     sizes = [sentiment['pos'], sentiment['neu'], sentiment['neg']]
     colors = ['green', 'blue', 'red']
+
+    update_chart(sizes, labels, colors)
+
+    
+
+
 
     # Clear the previous pie chart
     if chart is not None:
