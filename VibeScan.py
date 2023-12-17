@@ -98,3 +98,10 @@ emotion_result_label = tk.Label(root, text="Emotion Analysis Results")
 emotion_result_label.pack()
 
 root.mainloop()
+
+
+
+# need to fix AttributeError: module 'emoji' has no attribute 'UNICODE_EMOJI'
+#need to try different python package or API-based solutions.
+# As a temporary measure comment out parts of code to check if other code parts
+#are working properly.
