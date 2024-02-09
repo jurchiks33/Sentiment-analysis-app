@@ -13,11 +13,31 @@ canvas = None
 
 #Emotion lexicon for manual emotional analysis
 emotion_lexicon = {
-    "happy": ["happy", "jouful", "pleased", "delighted", "estatic"],
-    "sad": ["sad", "downcast", "mournful", "upset", "depressed"],
-    "angry": ["angry", "mad", "furious", "irritated", "annoyed"],
-    "surprise": ["surprised", "amazed", "astonished", "shocked", "stunned"],
-    "fear": ["fearful", "scared", "terrified", "afraid", "panic"]
+    "happy": [
+        "happy", "jouful", "pleased", "delighted", "estatic", 
+        "cheerful", "content", "glad", "satisfied", "thrilled", 
+        "elated", "overjoyed", "beaming", "buoyant", "jubilant"
+    ],
+    "sad": [
+        "sad", "downcast", "mournful", "upset", "depressed", 
+        "sorrowful", "gloomy", "heartbroken", "tearful", "melancholy", 
+        "dismal", "despondent", "disheartened", "forlorn", "woeful"
+    ],
+    "angry": [
+        "angry", "mad", "furious", "irritated", "annoyed", 
+        "enraged", "irate", "livid", "outraged", "wrathful", 
+        "heated", "exasperated", "vexed", "indignant", "agitated"
+    ],
+    "surprise": [
+        "surprised", "amazed", "astonished", "shocked", "stunned",
+        "astounded", "flabbergasted", "startled", "dumbfounded", "bewildered", 
+        "taken aback", "agog", "awestruck", "thunderstruck", "stupefied"
+    ],
+    "fear": [
+        "fearful", "scared", "terrified", "afraid", "panic", 
+        "frightened", "alarmed", "petrified", "horrified", "dread", 
+        "trepidation", "anxious", "nervous", "apprehensive", "timid"
+    ]
 }
 
 def analyze_emotion(text):
