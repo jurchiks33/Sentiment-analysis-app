@@ -67,11 +67,11 @@ def analyze_emotion_event():
 
 
 def update_chart(sizes, labels, colors):
-    global chart, canvas
+    global canvas
 
     if canvas is not None:
         canvas.figure.clf()
-        chart = None
+        ax = canvas.figure.subplots()
     else:
         fig, ax = plt.subplots()
     
@@ -81,8 +81,7 @@ def update_chart(sizes, labels, colors):
             canvas.draw()
         return
     
-    ax = canvas.figure.subplots() if canvas is not None else fig
-    chart = ax.pie(sizes, labels= labels, colors= colors, autopct='%1.1f%%', startangle=140)
+    ax.pie(sizes, labels= labels, colors= colors, autopct='%1.1f%%', startangle=140)
     ax.axis('equal')
 
     if canvas is not None:
