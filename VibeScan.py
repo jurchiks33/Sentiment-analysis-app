@@ -20,6 +20,17 @@ emotion_lexicon = {
     "fear": ["fearful", "scared", "terrified", "afraid", "panic"]
 }
 
+def analyze_emotion(text):
+    tokens = text.lower().split()
+    emotion_counts = {emotion: 0 for emotion in emotion_lexicon}
+    for word in tokens:
+        for emotion, words in emotion_lexicon.items():
+            if word in words:
+                emotion_counts[emotion] += 1
+    predominant_emotion, _= Counter(emotion_counts). most_common(1)[0]
+    return predominant_emotion, emotion_counts
+
+
 def analyze_sentiment():
     global chart, canvas
 
