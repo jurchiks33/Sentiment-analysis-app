@@ -69,30 +69,19 @@ def analyze_emotion_event():
 def update_chart(sizes, labels, colors):
     global chart, canvas
 
-    # Clear the previous pie chart
-    if chart is not None:
-        chart.remove()
+    if canvas is not None:
+        canvas.figure.clf()
         chart = None
-
+    else:
+        fig, ax = plt.subplots()
+    
     if not any(sizes):
         print("No data to display: all sizes are zero.")
         if canvas is not None:
-            canvas.get_tk_widget(). destroy()
-            canvas = None
+            canvas.draw()
         return
-
-    # Create figure for the pie chart
-    fig, ax = plt.subplots()
-    chart = ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
-    ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-
-
-    # Embedding the pie chart into the Tkinter window
-    if canvas is not None:
-        canvas.get_tk_widget().destroy()
-    canvas = FigureCanvasTkAgg(fig, master=root)
-    canvas_widget = canvas.get_tk_widget()
-    canvas_widget.pack()
+    
+    
 
 root = tk.Tk()
 root.title("VibeScan: Sentiment and Emotion Analysis App")
