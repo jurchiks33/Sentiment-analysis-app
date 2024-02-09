@@ -81,7 +81,16 @@ def update_chart(sizes, labels, colors):
             canvas.draw()
         return
     
-    
+    ax = canvas.figure.subplots() if canvas is not None else fig
+    chart = ax.pie(sizes, labels= labels, colors= colors, autopct='%1.1f%%', startangle=140)
+    ax.axis('equal')
+
+    if canvas is not None:
+        canvas.draw()
+    else:
+        canvas = FigureCanvasTkAgg(fig, master=root)
+        canvas_widget = canvas.get_tk_widget()
+        canvas_widget.pack()
 
 root = tk.Tk()
 root.title("VibeScan: Sentiment and Emotion Analysis App")
