@@ -49,22 +49,21 @@ def analyze_sentiment():
 
     update_chart(sizes, labels, colors)
 
-def analyze_emotion():
+def analyze_emotion_event():
     global chart, canvas
 
     text = text_input.get("1.0", "end-1c")
     translated_text = translator.translate(text, src='lv', dest='en').text
 
-    emotion = te.get_emotion(translated_text)
-    emotion_result_label.config(text="Emotion Analysis Results: " + str(emotion))
+    predominant_emotion, emotion_counts = analyze_emotion(translated_text)
+    emotion_result_label.config(text=f"Emotion Analysis Results: {predominant_emotion} {emotion_counts}")
 
     # Data for emotion pie chart
-    labels = list(emotion.keys())
-    sizes = list(emotion.values())
+    labels = list(emotion_counts.keys())
+    sizes = list(emotion_counts.values())
     colors = ['yellow', 'red', 'green', 'blue', 'orange']
 
     update_chart(sizes, labels, colors)
-
 
 
 def update_chart(sizes, labels, colors):
