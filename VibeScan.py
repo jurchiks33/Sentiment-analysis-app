@@ -3,13 +3,22 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from googletrans import Translator
 from nltk.sentiment import SentimentIntensityAnalyzer
-import text2emotion as te
+from collections import Counter
 
 translator = Translator()
 sia = SentimentIntensityAnalyzer()
 
 chart = None
 canvas = None
+
+#Emotion lexicon for manual emotional analysis
+emotion_lexicon = {
+    "happy": ["happy", "jouful", "pleased", "delighted", "estatic"],
+    "sad": ["sad", "downcast", "mournful", "upset", "depressed"],
+    "angry": ["angry", "mad", "furious", "irritated", "annoyed"],
+    "surprise": ["surprised", "amazed", "astonished", "shocked", "stunned"],
+    "fear": ["fearful", "scared", "terrified", "afraid", "panic"]
+}
 
 def analyze_sentiment():
     global chart, canvas
