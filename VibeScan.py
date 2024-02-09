@@ -71,11 +71,14 @@ def update_chart(sizes, labels, colors):
 
     # Clear the previous pie chart
     if chart is not None:
-        for piece in chart[0]:
-            piece.remove()
+        chart.remove()
+        chart = None
 
-    if all(size == 0 for size in sizes):
+    if not any(sizes):
         print("No data to display: all sizes are zero.")
+        if canvas is not None:
+            canvas.get_tk_widget(). destroy()
+            canvas = None
         return
 
     # Create figure for the pie chart
