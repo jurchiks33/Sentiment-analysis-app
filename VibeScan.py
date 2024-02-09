@@ -74,6 +74,10 @@ def update_chart(sizes, labels, colors):
         for piece in chart[0]:
             piece.remove()
 
+    if all(size == 0 for size in sizes):
+        print("No data to display: all sizes are zero.")
+        return
+
     # Create figure for the pie chart
     fig, ax = plt.subplots()
     chart = ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
